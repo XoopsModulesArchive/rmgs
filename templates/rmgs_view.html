@@ -1,0 +1,112 @@
+<script type="text/javascript">
+    function openWindow(theURL,winName,features) { //v2.0
+        window.open(theURL,winName,features);
+    }
+</script>
+<{include file="$module_path/templates/rmgs_title.html"}>
+<div align="right">
+<table style="width: auto; border: 0px; padding: 0px;" cellspacing="0" cellpadding="0">
+<td><a href="favs.php?op=add&amp;id=<{$image.id}>&amp;ret=<{$rmgs_requesturi}>"><img src="images/<{$mod_language}>/favs.png" alt='' border="0" /></a></td>
+<{if $allow_upload}><td><a href="upload.php?ret=<{$rmgs_requesturi}>"><img src="images/<{$mod_language}>/upload.png" alt='' border='0' /></a></td><{/if}>
+<{if $allow_postal}><td><a href="postal.php?op=create&amp;id=<{$image.id}>&amp;ret=<{$rmgs_requesturi}>"><img src="images/<{$mod_language}>/postal.png" alt="" border="0" /></a></td><{/if}>
+</table></div>
+
+<div class="locationBar"><{$location_bar}></div>
+<table align="center" class="viewTable">
+<tr><td align="center" class="viewBody">
+	
+	<table cellspacing="0" cellpadding="0" border="0">
+	<tr>
+	<td colspan="3">
+	<img src="<{$image.dir}>/<{$image.file}>" alt="<{$image.title}>" style="margin-bottom: 3px; border: 1px solid #000000; " />
+	</td></tr>
+	<tr class="other_info"><td valign="top">
+	<{$lang_belong}><br />
+	<{foreach item=catego from=$image_categos}>
+	<div class="categosItems">
+	<img src="images/add.png" border="0" align="absmiddle" />
+	<a href="categos.php?id=<{$catego.id}>"><{$catego.nombre}></a></div>
+	<{/foreach}>
+	</td><td valign="top" align="left">
+	<strong><{$lang_keys}></strong><br />
+	<{foreach item=key from=$image_keys}>
+		<img src="images/key.png" border="0" align="absmiddle" />
+		<a href="images.php?q=search&amp;kw=<{$key.text}>"><{$key.text}></a><br />
+	<{/foreach}></td>
+	<td valign="top" align="left">
+	<strong><{$lang_sizes}></strong><br />
+	<{foreach item=size from=$image.sizes}>
+		<{if $size.type==0}>
+			<a href="<{$image.dir}>/sizes/<{$size.file}>" target='_blank'><{$size.titulo}></a><br />
+		<{else}>
+			<a href="<{$size.file}>" target='_blank'><{$size.titulo}></a><br />
+		<{/if}>
+	<{/foreach}>
+	</td></tr>
+	</table>
+	
+	<{if $isAdmin}><a href="mypics.php?op=edit&amp;id=<{$image.id}>&amp;ret=<{$return}>"><img src="images/<{$mod_language}>/edit.png" border='0' /></a><{/if}>
+<table cellpadding="2" cellspacing="0" border="0" width="100%">
+		<tr><td class="infoCells" colspan="2"><span class="itemT"><{$lang_title}></span> <{$image.title}></td></tr>
+		<tr><td class="infoCells" width="50%"><span class="itemT"><{$lang_votes}></span> 
+		<{$image.votes}></td>
+		<td class="infoCells"><span class="itemT"><{$lang_downs}></span> 
+		<{$image.downloads}></td></tr>
+		<tr><td class="infoCells"><span class="itemT"><{$lang_rate}></span><br /><{$image.rating}></td>
+		<td class="infoCells"><span class="itemT"><{$lang_pop}></span><br /><{$image.pop}></td></tr>
+		<tr><td class="infoCells" valign="top"><span class="itemT"><{$lang_by}></span> <a href="images.php?q=user&amp;id=<{$user.uid}>"><{$user.uname}></a></td>
+		<td class='infoCells'>
+		<form name="frmVoto" style="padding: 0px; margin: 0px;">
+			<select name="voto" style="font-size: 10px; padding: 1px;">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+			</select>
+			<input type="hidden" name="id" value="<{$image.id}>" />
+			<input type="button" name="sbt" value="<{$lang_vote}>" style="font-size: 10px; border: 1px solid #CCCCCC;" onClick="openWindow('vote.php?id=<{$image.id}>&voto=' + frmVoto.voto.options[frmVoto.voto.selectedIndex].value,'voto','scrollbars=no,width=300,height=100')" />
+		</form>
+		</td></tr>
+		<tr><td style="vertical-align: middle; padding: 4px; text-align: center; font-size: 11px; font-weight: bold;" width="50%" align="center">
+		<a href="view.php?q=<{$page_q}>&amp;id=<{$previmg.id}>" title="<{$previmg.title}>"><img style="border: 1px solid #000000;" src="<{$previmg.dir}>/ths/<{$previmg.file}>" /></a>
+		</td><td style="vertical-align: middle; padding: 4px; text-align: center; font-size: 11px; font-weight: bold;" width="50%">
+		<a href="view.php?q=<{$page_q}>&amp;id=<{$nextimg.id}>" title="<{$nextimg.title}>"><img style="border: 1px solid #000000;" src="<{$nextimg.dir}>/ths/<{$nextimg.file}>" /></a>
+		</td></tr>
+		<tr><td style="font-size: 10px; text-align:center;">
+		<a href="view.php?q=<{$page_q}>&amp;id=<{$previmg.id}>" title="<{$previmg.title}>"><{$lang_prev}></a></td>
+		<td style="font-size: 10px; text-align:center;">
+		<a href="view.php?q=<{$page_q}>&amp;id=<{$nextimg.id}>" title="<{$nextimg.title}>"><{$lang_next}></a></td>
+		</tr>
+	</table>
+</td></tr>
+<tr><td style=" padding: 0px;">
+	
+</td></tr>
+</table>
+
+<!--Mostramos tamaos -->
+
+<!-- Fin de los tamaos -->
+<{$rmgs_footer}>
+
+<!-- Comentarios -->
+	<div style="text-align: center; padding: 3px; margin:3px; width:100%;" align="center">
+  <{$commentsnav}>
+  <{$lang_notice}>
+</div>
+
+    <a name="users"></a>
+    <div style="margin:3px; padding: 3px; text-align:center" align="center">
+<!-- start comments loop -->
+<{if $comment_mode == "flat"}>
+  <{include file="db:system_comments_flat.html"}>
+<{elseif $comment_mode == "thread"}>
+  <{include file="db:system_comments_thread.html"}>
+<{elseif $comment_mode == "nest"}>
+  <{include file="db:system_comments_nest.html"}>
+<{/if}>
+<!-- end comments loop -->
+</div>

@@ -1,0 +1,64 @@
+<table cellpadding="0" cellspacing="4" border="0" align="center" width="100%">
+	<tr>
+		<td nowrap="nowrap"><a href="favs.php"><img src="images/<{$mod_language}>/favs.png" border="0" /></a><a href="upload.php?ret=<{$return}>"><img src="images/<{$mod_language}>/upload.png" border="0" /></a></td>
+		<td align="right" style="vertical-align: bottom; font-size: 10px; font-weight: normal;">
+		<{$lang_page}> 
+		<{foreach item=pag from=$pages}>
+			<{$pag}>
+		<{/foreach}>
+		</td>
+	</tr>
+</table>
+<table cellspacing="1" class="outer" width="100%">
+	<tr class="even">
+	<{assign var="i" value="1"}>
+	<{foreach item=img from=$images}>
+		<{if $i>$columns}>
+			</tr><tr class="<{cycle values="odd,even"}>">
+			<{assign var="i" value="1"}>
+		<{/if}>
+		<td align="left" width="<{$colw}>">
+			<a href="view.php?q=cat&amp;id=<{$img.id}>&amp;pag=<{$current_page}>" title="<{$img.title}>"><img src="<{$img.dir}>/ths/<{$img.file}>" border="0" style="border: 1px solid #000000;" /></a>
+			<div align="left" class="imginfo">
+			<{if $img.isnew}>
+				<img src="images/<{$mod_language}>/new.gif" border="0" /><br />
+			<{else}>
+				<{if $img.isupdate}>
+					<img src="images/<{$mod_language}>/update.gif" border="0" /><br />
+				<{/if}>
+			<{/if}>
+			<{$lang_by}> <a href="images.php?q=user&amp;id=<{$img.uid}>"><{$img.uname}></a><br />
+			<{$lang_since}> <{$img.date}>
+			</div>
+		</td>
+		<{assign var="i" value=$i+1}>
+	<{/foreach}></tr>
+	<tr><td colspan="<{$columns}>" style="padding: 4px; font-size: 10px; text-align: right;">
+	<{$lang_page}> 
+		<{foreach item=pag from=$pages}>
+			<{$pag}>
+		<{/foreach}>
+	</td></tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td style="text-align: left; padding: 4px; font-size: 10px; font-weight: nrormal;"><{$lang_showing}></td>
+<td style="text-align: right; padding: 4px; font-size: 10px; font-weight: bold;">
+	<form name='frmRes' method='get' action="images.php">
+		<{$lang_resxpag}> <select name="results" style="font-weight: normal;">
+			<{foreach item=res from=$results}>
+				<{if $res.selected}>
+					<option value="<{$res.num}>" selected="selected"><{$res.num}></option>
+				<{else}>
+					<option value="<{$res.num}>"><{$res.num}></option>
+				<{/if}>
+			<{/foreach}>
+		</select> <input type="submit" value=">>" class="formButton" style="font-size: 10px;" />
+		<input type="hidden" name="pag" value="<{$current_page}>" />
+		<input type="hidden" name="q" value="<{$q_show}>" />
+		<{if $q_show=='search'}>
+			<input type="hidden" name="kw" value="<{$search_key}>" />
+		<{elseif $q_show=='user'}>
+			<input type="hidden" name="id" value="<{$user_id}>" />
+		<{/if}>
+	</form>
+</td></tr></table>

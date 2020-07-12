@@ -1,0 +1,12 @@
+<div style="padding: 2px; text-align: center; line-height: 1.5em;">
+	<form id="frmCatsGo" name='frmCatsGo' method="get" action="<{$xoops_url}>/modules/rmgs/categos.php">
+	<{$lang_rmgs_bkcats}><br />
+		<select name="id" onchange="document.frmCatsGo.submit();">
+			<option value="0" selected="selected"><{$lang_rmgs_bksel}></option>
+			<{foreach item=cat from=$block.categos}>
+				<option value="<{$cat.id_cat}>"><{$cat.name}></option>
+			<{/foreach}>
+		</select><br />
+		<input type="submit" name="sbt" value="<{$lang_submit}>" style="margin: 4px;" />
+	</form>
+</div>

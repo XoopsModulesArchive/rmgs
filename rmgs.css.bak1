@@ -1,0 +1,58 @@
+/* CSS Document */
+
+.rmgsTitle{
+	padding: 4px; background-color: transparent;
+	vertical-align: top; font-size: 11px; text-align: right;
+	font-weight: bold; color: #A0ACBC; font-family: Arial, Helvetica, sans-serif;
+	margin-bottom: 6px;
+}
+.rmgsTitle a{ color: #A0ACBC; text-decoration: underline; }
+.rmgsTitle a:hover{ color: #FFCC00; text-decoration: underline; }
+.rmgsTitleR{ font-size: 11px; font-weight: normal; color: #FFFFFF; font-family: Arial, Helvetica, sans-serif; }
+.title_left{ font-size: 24px; font-weight: bolder; color: #FFFFFF; font-family: Verdana, Arial, Helvetica, sans-serif; }
+.title_left a{ color: #FFFFFF; text-decoration: none; }
+.title_right{ font-size: 24px; font-weight: bolder; color: #FFFFFF; font-family: Verdana, Arial, Helvetica, sans-serif; }
+.title_right a{ color: #FFFFFF; text-decoration: none; }
+.welcome{
+	font-size: 20px; font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold; color: #FFFFFF; text-align: left;
+	padding: 6px;
+}
+.link_titles{ font-size: 18px; font-weight: bolder; text-align: left; font-family: Arial, Helvetica, sans-serif; }
+.link_titles a{ color: #FFFFFF; text-decoration: underline; }
+.photos{ border: 0px solid #000000; background-color: transparent; }
+.photos td{ font-size: 10px; font-family: Verdana, Arial, Helvetica, sans-serif; font-weight: normal; padding: 4px;	color: #000000; }
+.photos a{ color: #FFFFFF; text-decoration: underline; font-weight: normal; }
+.photos .info{ border-bottom: 1px solid #FFFFFF; }
+.catego_title{ font-size: 18px; font-weight: bolder;  text-align: left; border-bottom: 2px solid #A0ACBC; padding: 4px; }
+.categos_body{ font-size: 11px; font-weight: normal; text-align: left; padding: 4px; border-bottom: 1px solid #A0ACBC; }
+.categos_body .title{ font-size: 14px; font-weight: bolder; font-family: Arial, Helvetica, sans-serif; }
+.categos_body a{ text-decoration: none; }
+.categos_body a:hover{ color: #FFFFFF; text-decoration: underline; }
+.categos_body .subcat{ font-size: 10px; font-weight: bolder; }
+.categos_body .info{ font-size: 10px; }
+.imginfo{ font-size: 10px; text-align: left; padding: 2px; margin-bottom: 6px; }
+.infoCells{ padding: 2px; font-size: 10px; border-bottom: 1px solid #A0ACBC; text-align: left; }
+.infoCells .itemT{ font-size: 10px; font-weight: bold; }
+
+.sizes_title{ font-family: Arial, Helvetica, sans-serif; padding: 4px; font-size: 16px; font-weight: bold; color: #FFFFFF; vertical-align: middle; }
+.sizes_items{ font-size: 11px; padding: 4px; vertical-align: middle; text-align: center; border-left: 1px solid #85CC18; }
+.sizes_items a{ text-decoration: underline; font-weight: normal; padding: 2px; }
+.sizes_items a:hover{ color: #FFFFFF; }
+.other_info{ vertical-align: top; text-align: left; line-height: 1.4em; border: 0px; width: 120px; padding: 0px; padding-right: 5px; }
+.other_info a{ color: #FFFFFF; font-weight: normal; font-size: 11px; }
+.other_info a:hover{ color: #ffffff; text-decoration: none; }
+
+.popkeys{ font-family: Arial, Helvetica, sans-serif; color: #006600; text-align: justify; line-height: 4em; }
+.popkeys a{ text-decoration: none; color: #009900; }
+.popkeys a:hover{ color: #ffffff; }
+
+.pages{ padding: 2px; border: 1px solid #FFFFFF; background-color: #FFCC00; color: #000000; font-size: 11px; font-weight: bold; }
+.pages:hover{ background-color: transparent; color: #ffffff; border: 1px solid #FFCC00; }
+.current_page{ color: #000000; font-weight: bold; font-size: 11px; }
+
+.viewTable{ width: auto; border: 0px; }
+.viewBody{ padding: 4px; }
+.locationBar{ font-size: 10px; padding: 4px; border-top: 1px solid #FFCC00; margin-top: 5px; }
+.categosItems{ background-color: #FFCC00; color: #000000; border: 1px solid #FFFFFF; padding: 2px; margin-bottom: 4px; }
+.categosItems a{ color: #000000; }

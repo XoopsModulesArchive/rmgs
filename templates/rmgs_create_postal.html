@@ -1,0 +1,55 @@
+<{include file="$module_path/templates/rmgs_title.html"}>
+<table class="outer" width="100%" cellspacing="1" cellpadding="0">
+	<tr><th colspan="2"><{$lang_create_postal}></th></tr>
+	<tr class="odd">
+		<td class="odd" align="center" valign="top">
+		<a href="<{$return}>"><img style="border: 1px solid #999999;" src="<{$img.dir}>/ths/<{$img.file}>" border="0" /></a>
+		<br /><a href="<{$return}>"><{$img.title}></a>		</td>
+		<form name='frmPost' method="post" action="postal.php" id="frmPost">
+		<td>
+		<table width="100%" cellpadding="0" cellspacing="1" border="0">
+		<tr class="even"><td>
+		<{$lang_name_dest}><br />
+		<input type="text" name="name_dest" size="40" maxlength="150" /></td></tr>
+		<tr class="odd"><td>
+		<{$lang_email_dest}><br />
+		<input type="text" name="mail_dest" size="40" maxlength="150" /></td></tr>
+		<tr class='even'><td>
+		<{$lang_postal_title}><br />
+		<input type="text" name="titulo" size="40" maxlength="100" /></td></tr>
+		<tr class="odd"><td>
+		<{$lang_postal_content}><br />
+		<textarea name="texto" cols="35" rows="10"></textarea>
+		</td></tr>
+		<tr class="even"><td>
+		<img id="tplshot" name="tplshot" src="" style="margin-bottom: 4px; border: 1px solid #000000;" width="100" /><br />
+		<{$lang_template}><br />
+		<select id="template" name="template" onchange="javascript:rmgsShowTplImage('tplshot','<{$xoops_url}>/modules/rmgs/tpls/','template');">
+		<{foreach item=tpl from=$templates}>
+			<option value="<{$tpl}>"><{$tpl}></option>
+		<{/foreach}>
+		</select>
+		</td></tr>
+		<tr class="odd"><td>
+		<{$lang_yourname}><br />
+		<input type="text" name="nombre" size="40" maxlength="150" value="<{$rmgs_user.nombre}>" />
+		</td></tr>
+		<tr class="even"><td>
+		<{$lang_yourmail}><br />
+		<input type="text" name="email" size="40" maxlength="150" value="<{$rmgs_user.email}>" />
+		</td></tr>
+		<tr class="odd"><td>
+		<input type="button" name="preview" value="<{$lang_preview}>" class="formButton" onClick="javascript:changeFormAction('frmPost','preview.php','_blank');" />
+		<input type="button" name="sbt" value="<{$lang_send}>" class="formButton" onClick="javascript:changeFormAction('frmPost','postal.php','_self');" />
+		<input type="button" name="cancel" class="formButton" value="<{$lang_cancel}>" onClick="history.go(-1);" />
+		<input type="hidden" name="op" value="send" />
+		<input type="hidden" name="id" value="<{$img.id}>" />
+		<input type="hidden" name="ret" value="<{$return_encode}>" />
+		</td></tr>
+		</table>
+		</td>
+		</form>
+	</tr>
+	
+</table>
+<{$rmgs_footer}>

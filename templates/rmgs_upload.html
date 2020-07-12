@@ -1,0 +1,31 @@
+<{include file="$module_path/templates/rmgs_title.html"}>
+<table class="outer" border="0" cellspacing="1" cellpadding="0">
+	<tr><th colspan="2"><{$lang_upload}></th></tr>
+	<form name="frmUpload" method="post" action="upload.php" enctype="multipart/form-data">
+	<tr>
+		<td class="odd" valign="top">
+		<table cellpadding="4" cellspacing="1" border="0" width="100%">
+		<{foreach item=file from=$files}>
+			<tr class="<{cycle values="even,odd"}>"><td>
+			<{$file}></td></tr>
+		<{/foreach}>
+		</table>
+		</td>
+		<td class="odd" valign="top"><span style="font-size: 10px;"><{$upload_tip}></span>
+		<br /><br />
+		<strong><{$lang_keywords}></strong><br />
+		<input type="text" name="keys" size="30" /><br />
+		<span style="font-size: 10px;"><{$lang_spacekey}></span><br /><br />
+		<strong><{$lang_categos}></strong><br />
+		<select name="cat[]" multiple="multiple" size="7">
+		<{foreach item=cat from=$categos}>
+			<option value="<{$cat.id}>"><{$cat.nombre}></option>
+		<{/foreach}></select><br /><br />
+		<input type="submit" name="sbt" value="<{$lang_submit}>" class="formButton" />
+		<input type="button" name="cancel" value="<{$lang_cancel}>" class="formButton" onClick="history.go(-1);" />
+		<input type="hidden" name="ret" value="<{$return}>" />
+		<input type="hidden" name="op" value="upload" /></td>
+	</tr>
+	</form>
+</table>
+<{$rmgs_footer}>

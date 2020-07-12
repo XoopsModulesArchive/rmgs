@@ -1,0 +1,63 @@
+<table cellpadding="0" cellspacing="4" border="0" align="center" width="100%">
+	<tr>
+		<td><{$mypics_results}></td>
+		<td align="right" style="vertical-align: bottom; font-size: 10px; font-weight: normal;">
+		<{$lang_page}> 
+		<{foreach item=pag from=$pages}>
+			<{$pag}>
+		<{/foreach}>
+		</td>
+	</tr>
+</table>
+<table cellspacing="1" class="outer" width="100%">
+	<tr class="even">
+	<{assign var="i" value="1"}>
+	<{foreach item=img from=$images}>
+		<{if $i>$columns}>
+			</tr><tr class="<{cycle values="odd,even"}>">
+			<{assign var="i" value="1"}>
+		<{/if}>
+		<td align="left" width="<{$colw}>">
+			<a href="view.php?q=cat&amp;id=<{$img.id}>&amp;pag=<{$current_page}>" title="<{$img.title}>"><img src="<{$img.dir}>/ths/<{$img.file}>" border="0" style="border: 1px solid #000000;" /></a>
+			<div align="left" class="imginfo">
+			<{if $img.isnew}>
+				<img src="images/<{$mod_language}>/new.gif" border="0" /><br />
+			<{else}>
+				<{if $img.isupdate}>
+					<img src="images/<{$mod_language}>/update.gif" border="0" /><br />
+				<{/if}>
+			<{/if}>
+			<{$lang_since}> <{$img.date}><br />
+			<{$lang_access}> <strong><{$img.downs}></strong><br />
+			<a href="javascript:decision('<{$lang_confirmdel}>','?op=del&amp;id=<{$img.id}>&amp;ret=<{$return}>');"><{$lang_delete}></a> &bull;
+			<a href="?op=edit&amp;id=<{$img.id}>&amp;ret=<{$return}>"><{$lang_edit}></a>
+			<{if $other_sizes}>&bull; <a href="?op=sizes&amp;id=<{$img.id}>&amp;ret=<{$return}>"><{$lang_sizes}></a><{/if}>
+			</div>
+		</td>
+		<{assign var="i" value=$i+1}>
+	<{/foreach}></tr>
+	<tr><td colspan="<{$columns}>" style="font-size: 10px; text-align: center; padding: 4px;">
+	<{$lang_page}> 
+		<{foreach item=pag from=$pages}>
+			<{$pag}>
+		<{/foreach}>
+	</td></tr>
+</table>
+<div style="float: left; padding: 4px;">
+<a href="favs.php"><img src="images/<{$mod_language}>/favs.png" border="0" /></a><a href="upload.php?ret=<{$return}>"><img src="images/<{$mod_language}>/upload.png" border="0" /></a>
+</div>
+<div style="text-align: right; padding: 4px; font-size: 10px; font-weight: bold;">
+	<form name='frmRes' method='get' action="mypics.php">
+		<{$lang_resxpag}> <select name="results" style="font-weight: normal;">
+			<{foreach item=res from=$results}>
+				<{if $res.selected}>
+					<option value="<{$res.num}>" selected="selected"><{$res.num}></option>
+				<{else}>
+					<option value="<{$res.num}>"><{$res.num}></option>
+				<{/if}>
+			<{/foreach}>
+		</select> <input type="submit" value=">>" class="formButton" style="font-size: 10px;" />
+		<input type="hidden" name="id" value="<{$catego.id}>" />
+		<input type="hidden" name="pag" value="<{$current_page}>" />
+	</form>
+</div>

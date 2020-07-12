@@ -1,0 +1,8 @@
+<{include file="$module_path/templates/rmgs_title.html"}>
+
+<p class="popkeys">
+<{foreach item=key from=$keys}>
+<a href="images.php?q=search&amp;kw=<{$key.key}>" title="<{$key.legend}>" style="font-size: <{$key.size}>px; font-weight: bold;"><{$key.key}></a> 
+<{/foreach}></p>
+<br /><br />
+<{$rmgs_footer}>

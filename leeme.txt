@@ -1,0 +1,29 @@
+RMSOFT Gallery System 2.0
+Control Avanzado de Galerías e Imágenes
+========================================
+
+RMGS 2.0 te permitirá crear todas las categorías, galerías e
+imágenes que desees de manera muy sencilla.
+
+Solamente deberás subir tus imágenes y RMGS automáticamente las
+redimensionará para organizar tus galerías.
+
+RMGS 2.0 no es compatible con RMGS 1.x o inferiores.
+
+
+INSTALACIÓN
+------------------------------
+
+ 1. Copia el folder "rmgs" al directorio "modules" de tu instalación XOOPS
+ 2. Ve al panel de control de XOOPS
+ 3. Instala RMSOFT Gallery System 2.0
+ 4. Configura los parámetros del Módulo
+ 5. Listo.
+
+------------------------------
+
+Encuentra mas módulos en www.xoops-mexico.net
+
+Si deseas un diseño personalizado para tu sitio XOOPS
+o la creación de módulos adecuados a tus necesidades
+visita www.redmexico.com.mx

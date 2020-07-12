@@ -1,0 +1,17 @@
+<{include file="$module_path/templates/rmgs_title.html"}>
+<div style="font-size: 10px; text-align: right; padding: 4px;">
+<form name="frmNav" id="frmNav" method="get" action="categos.php">
+	<{$lang_goto}> <select name='cat' onChange="window.location = 'categos.php?id=' + frmNav.cat.options[frmNav.cat.selectedIndex].value;">
+		<{foreach item=op from=$options}>
+			<{if $op.selected}>
+				<option value="<{$op.id}>" selected="selected"><{$op.title}></option>
+			<{else}>
+				<option value="<{$op.id}>"><{$op.title}></option>
+			<{/if}>
+		<{/foreach}>
+	</select>
+</form>
+</div>
+<{include file="$module_path/templates/rmgs_results.html"}>
+<{include file="$module_path/templates/rmgs_categos_table.html"}>
+<{$rmgs_footer}>

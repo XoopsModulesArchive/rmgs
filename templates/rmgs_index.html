@@ -1,0 +1,47 @@
+<{include file="$module_path/templates/rmgs_title.html"}>
+<{if $lang_welcome != "" }>
+			<div class="welcome">
+			<{$lang_welcome}>
+			</div>
+		<{/if}>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+	<tr>
+		<td><a href="view.php?id=<{$home_image.id}>"><img style="border: 1px solid #000000;" src="<{$home_image.img}>" border="0" /></a></td>
+		<td align="left">
+		<div style="padding: 0px; margin-left: 10px; font-size: 11px;">
+		<form name="frmSrh" action="images.php" method="get">
+		<span style="font-size: 12px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><{$lang_finda}></span><br />
+		<input type="text" name="kw" size="20" style="font-family: Arial, Helvetica, sans-serif;height: 20px; padding: 4px; font-weight: bold; margin-top: 4px; margin-bottom: 4px; font-size: 14px; vertical-align: middle;" />
+		<input type="hidden" name="q" value="search" />
+		<br /><a href="keys.php"><{$lang_popularkeys}></a>
+		</form><br />
+		<a href="upload.php"><img src="images/upload.png" border="0" align="absmiddle" /></a>
+		<a href="upload.php" style="font-size: 14px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><{$lang_upload_home}></a><br />
+		<a href="mypics.php"><img src="images/mypics.png" border="0" align="absmiddle" /></a>
+		<a href="mypics.php" style="font-size: 14px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><{$lang_mypics_home}></a><br />
+		<a href="favs.php"><img src="images/favs.png" border="0" align="absmiddle" /></a>
+		<a href="favs.php" style="font-size: 14px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><{$lang_favs_home}></a><br />
+		<a href="images.php?q=all"><img src="images/allpics.png" border="0" align="absmiddle" /></a>
+		<a href="images.php?q=all" style="font-size: 14px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><{$lang_all_pics}></a>
+		</div>
+		</td>
+	</tr>
+</table><br />
+<!-- Tabla Imagenes Recientes -->
+<table cellpadding="0" cellspacing="0" class="photos" align="center" width="100%">
+		<tr><td colspan="2" align="left" class="info"><{$lang_last}></td>
+		<td align="right" class="info"><a href="images.php?q=all" title="<{$lang_all_pics}>"><{$lang_all_pics}></a></td></tr><tr>
+		<{assign var="i" value="1"}>
+	<{foreach item=img from=$recent_images}>
+		<{if $i>3}>
+			</tr><tr>
+			<{assign var="i" value="1"}>
+		<{/if}>
+		<td align="center"><a href="view.php?id=<{$img.id}>"><img src="<{$img.dir}>ths/<{$img.file}>" border="0" /></a><br />
+			<{$lang_by}> <a href="images.php?q=user&amp;id=<{$img.idu}>"><{$img.user}></a></td>
+		<{assign var="i" value=$i+1}>
+	<{/foreach}></tr>
+</table>
+<!-- fin Tabla imagenes recientes -->
+<{include file="$module_path/templates/rmgs_categos_table.html"}>
+<{$rmgs_footer}>

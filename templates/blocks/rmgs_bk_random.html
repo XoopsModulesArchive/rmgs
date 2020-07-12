@@ -1,0 +1,22 @@
+<table width='100%' cellspacing='0' cellpadding='0' border='0'>
+  <tr class="<{cycle values="even,odd"}>">
+  <{assign var="i" value=1}>
+<{foreach item=img key=count from=$block.images}>
+	  <{if $i>$num_cols}>
+	  	</tr><tr class="<{cycle values="even,odd"}>">
+		<{assign var="i" value=1}>
+	  <{/if}>
+      <td align='center' style='margin:0px;padding:5px 0px;' valign="top">
+		<a href="<{$xoops_url}>/modules/rmgs/view.php?id=<{$img.id}>" title="<{$img.title}>">
+		<img src="<{$img.file}>" style="border: 1px solid #000000;" />
+		</a><br />
+		<span style="font-size: 10px;">
+		<{$rmgs_lang_by}> <a href="<{$xoops_url}>/modules/rmgs/images.php?q=user&amp;id=<{$img.userid}>"><{$img.user}></a>
+		<br /><{$rmgs_lang_date}> <strong><{$img.date}></strong>
+		</span>
+		
+      </td>
+      <{assign var="i" value=$i+1}>
+    <{/foreach}>
+  </tr>
+</table>
